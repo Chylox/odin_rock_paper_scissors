@@ -2,35 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        button {
+            margin: 1%;
+            padding: 10px;
+            width: 300px;
+            font-size: 2em;
+        }
+
+        body {
+            width: 100%;
+            
+        }
+        div {
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-around;
+            margin: 0 0 5vh 0;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Telling User about how this game works -->
-    <!-- <p>Choose Rock, Paper or Scissors</p>
-    <form>
-        <input type="radio" name="rpm" id="rock" value="rock">
-        <label for="rock">Rock</label><br>
-        <input type="radio" name="rpm" id="paper" value="rock">
-        <label for="paper">Paper</label><br>
-        <input type="radio" name="rpm" id="scissors" value="scissors">
-        <label for="scissors">Scissors</label>
-    </form> -->
+    <div>
+        <button id="startGame">Start Game</button>
+    </div>
+    <div>
+        <button id="rock" value="rock">Rock</button>
+        <button id="paper" value="paper">Paper</button>
+        <button id="scissors" value="scissors">Scissors</button>
+    </div>
 
-    <!-- form for asking for user input of one out of 3 options 
-    Sending it to script.js for further processing -->
-
-
-    <!-- Output the user choice, computer choice and result of the round -->
-    <!-- <p id="userChoice"></p>
-
-    <p id="pcChoice"></p>
-
-    <p id="result"></p> -->
-
+    <div id="output">
+        Here Comes the Output
+    </div>
 
 
     <script src="script.js"></script>

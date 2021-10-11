@@ -4,31 +4,32 @@ let compInput;
 let winCounterPlayer = 0;
 let winCounterComp = 0;
 
-// Declare Functions to call user for input----------------------------------------------:
-function getUserInput() {
-    const userChoice = prompt("Please input Rock, Paper or Scissor");
+const startGame = document.querySelector('#startGame');
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
 
-    return userChoice;
+
+
+// Function that fetches user Input.
+function getUserInput() {
+    rock.addEventListener('click', function(e) {
+        userInput = this.value;
+        console.log(userInput);
+    });
+    paper.addEventListener('click', function(e) {
+        userInput = this.value;
+        console.log(userInput);
+    });
+    scissors.addEventListener('click', function(e) {
+        userInput = this.value;
+        console.log(userInput);
+    });
 }
 // getUserInput();
 
-// Function to check if user input is valid:
-function checkUserInput() {
-    let userChoice = getUserInput();
 
-    // Convert user input to always readable data:
-    userChoice = userChoice.toLowerCase();
 
-    if (userChoice === "rock") {
-        userInput = "rock";
-    } else if (userChoice === "paper") {
-        userInput = "paper";
-    } else if (userChoice === "scissors") {
-        userInput = "scissors";
-    } else {
-        checkUserInput();
-    }
-}
 
 // Declaring a functions that returns a computer choice---------------------------------:
 function getCompNum() {
@@ -47,6 +48,8 @@ function checkCompChoice() {
         compInput = "scissors";
     }
 }
+
+
 
 // Declare Function: Given User and Comp Input compare them and declare a winner for this round:
 // Function to Check Who wins this round:
@@ -74,36 +77,71 @@ function rockPaperScissors(user, comp) {
     }
 }
 
-function myGame() {
-    console.log('This is a new Game of RPS:')
-    for (let i = 0; i <= 100; i++) {
-        checkUserInput();
-        checkCompChoice();
+// function myGame() {
+//     console.log('This is a new Game of RPS:')
 
-        console.log(
-            `Player chose: ${userInput.toUpperCase()} and Computer chose: ${compInput.toUpperCase()}`
-        );
+//     for (let i = 0; i <= 100; i++) {
+//         // checkUserInput();
+//         checkCompChoice();
 
-        rockPaperScissors(userInput, compInput);
-        if (winCounterPlayer == 5 || winCounterComp == 5) {
-            break;
-        }
-    }
+//         console.log(
+//             `Player chose: ${userInput.toUpperCase()} and Computer chose: ${compInput.toUpperCase()}`
+//         );
 
-    if (winCounterPlayer == 5) {
-        winCounterPlayer = 0;
-        winCounterComp = 0;
-        console.log("Player Wins The Game");
-        myGame();
-    } else if (winCounterComp == 5) {
-        winCounterPlayer = 0;
-        winCounterComp = 0;
-        console.log("Computer Wins The Game");
-        myGame();
-    }
-}
+//         rockPaperScissors(userInput, compInput);
+//         if (winCounterPlayer == 5 || winCounterComp == 5) {
+//             break;
+//         }
+//     }
 
-myGame();
+//     if (winCounterPlayer == 5) {
+//         winCounterPlayer = 0;
+//         winCounterComp = 0;
+//         console.log("Player Wins The Game");
+//         myGame();
+//     } else if (winCounterComp == 5) {
+//         winCounterPlayer = 0;
+//         winCounterComp = 0;
+//         console.log("Computer Wins The Game");
+//         myGame();
+//     }
+// }
+// myGame();
 
 // Declare Function: Make a Game of 5 rounds that always calls the other functions and
 // outputs a winner or a draw at the end:
+
+
+
+
+
+
+
+
+// // // // DEPRECATED CODE:
+
+// Declare Functions to call user for input----------------------------------------------:
+// function getUserInput(input) {
+//     const userChoice = prompt("Please input Rock, Paper or Scissor");
+
+//     return userChoice;
+// }
+// getUserInput();
+
+// Function to check if user input is valid:
+// function checkUserInput() {
+//     let userChoice = getUserInput();
+
+//     // Convert user input to always readable data:
+//     userChoice = userChoice.toLowerCase();
+
+//     if (userChoice === "rock") {
+//         userInput = "rock";
+//     } else if (userChoice === "paper") {
+//         userInput = "paper";
+//     } else if (userChoice === "scissors") {
+//         userInput = "scissors";
+//     } else {
+//         checkUserInput();
+//     }
+// }
