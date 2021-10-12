@@ -4,54 +4,90 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
-let playerChoice = '';
-let counter = 0;
+// let playerChoice;
+// let compChoice;
+// let counter = 0;
+
 // // // Buildup of Basic Logic:
 
-// Function to get Value of the Buttons:
-const rpsButtons = document.querySelectorAll(".rps");
+// Functions to get Player Input AND Start the Game:
+// At the End make ONE addEventListener for all buttons. If one is pressed a Round of Gameplay is automatically started:
+const playAround = document.querySelectorAll(".rps");
 
-function paperFunc() {
-    return 'paper';
-}
-function rockFunc() {
-    return 'rock';
-}
-function scissorsFunc() {
-    return 'scissors';
-}
+playAround.forEach((button) => {
+    button.addEventListener("click", function(e) {
+        let playerChoice;
 
-// function playerInput() {
-//     rpsButtons.forEach((button) => {
-//         button.addEventListener("click", () => {
-//             // console.log(button.value);
-//             return button.value;
-//         });
-//     });
-// }
+        playerChoice = this.value;
 
-function playGame () {
-    // playerInput();
-    rock.addEventListener('click', () => {
-        let playerChoice = rockFunc();
-        console.log(playerChoice);
+        console.log('Player chose: ' + playerChoice);
+
+        playGame(playerChoice);
     });
-    paper.addEventListener('click', () => {
-        let playerChoice = paperFunc();
-        console.log(playerChoice);
-    });
-    scissors.addEventListener('click', () => {
-        let playerChoice = scissorsFunc();
-        console.log(playerChoice);
-    });
+});
+
+
+// Functions to get Computer Input:
+function getCompNum() {
+    let compChoice = Math.floor(Math.random() * 3) + 1;
+    return compChoice;
+}
+
+function getCompInput() {
+    const rndmNr = getCompNum();
+    let compChoice;
+
+    if (rndmNr === 1) {
+        compChoice = "rock";
+        console.log("Computer chose: " + compChoice);
+    } else if (rndmNr === 2) {
+        compChoice = "paper";
+        console.log("Computer chose: " + compChoice);
+    } else if (rndmNr === 3) {
+        compChoice = "scissors";
+        console.log("Computer chose: " + compChoice);
+    }
+
+    return compChoice;
+}
+
+// Function to play a round of RPS:
+function rockPaperScissors(user, comp) {
+    if (user == comp) {
+        console.log("Draw");
+    } else if (user == "rock" && comp == "scissors") {
+        console.log("Player Wins");
+        // winCounterPlayer += 1;
+    } else if (user == "rock" && comp == "paper") {
+        console.log("Computer Wins");
+        // winCounterComp += 1;
+    } else if (user == "paper" && comp == "rock") {
+        console.log("Player Wins");
+        // winCounterPlayer += 1;
+    } else if (user == "paper" && comp == "scissors") {
+        console.log("Computer Wins");
+        // winCounterComp += 1;
+    } else if (user == "scissors" && comp == "paper") {
+        console.log("Player Wins");
+        // winCounterPlayer += 1;
+    } else if (user == "scissors" && comp == "rock") {
+        console.log("Computer Wins");
+        // winCounterComp += 1;
+    }
 }
 
 
-if (counter == 0) {
-    playGame();
+// Function that controls the Gameplay:
+function playGame(player) {
+    let pl;
+    let co;
+
+    pl = player;
+    co = getCompInput();
+
+    rockPaperScissors(pl, co);
 }
-
-
+// playGame();
 
 
 
