@@ -14,6 +14,7 @@ const compSelect = document.querySelector('#compSelect');
 
 let playerCount = 0;
 let computerCount = 0;
+let count = 0;
 
 // // // Buildup of Basic Logic:
 
@@ -101,6 +102,16 @@ function updateScoreboard() {
     compScore.textContent = computerCount;
 }
 
+// 5 Rounds Function:
+function fiveRounds() {
+    if (playerCount == 5 || computerCount == 5) {
+        playerCount = 0;
+        computerCount = 0;
+
+        outputWinner.textContent = '### WE HAVE A WINNER ###';
+    }
+}
+
 
 // Function that controls the Gameplay:
 function playGame(player) {
@@ -113,6 +124,8 @@ function playGame(player) {
     rockPaperScissors(pl, co);
 
     updateScoreboard();
+
+    fiveRounds();
 }
 
 
