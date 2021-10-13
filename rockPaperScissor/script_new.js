@@ -4,9 +4,16 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
-// let playerChoice;
-// let compChoice;
-// let counter = 0;
+// Targeting Output HTML:
+const playerScore = document.querySelector('#playerScore');
+const compScore = document.querySelector('#compScore');
+const outputWinner = document.querySelector('#outputWinner');
+
+const playerSelect = document.querySelector('#playerSelect');
+const compSelect = document.querySelector('#compSelect');
+
+let playerCount = 0;
+let computerCount = 0;
 
 // // // Buildup of Basic Logic:
 
@@ -19,6 +26,8 @@ playAround.forEach((button) => {
         let playerChoice;
 
         playerChoice = this.value;
+
+        playerSelect.textContent = playerChoice;
 
         console.log('Player chose: ' + playerChoice);
 
@@ -48,6 +57,8 @@ function getCompInput() {
         console.log("Computer chose: " + compChoice);
     }
 
+    compSelect.textContent = compChoice;
+
     return compChoice;
 }
 
@@ -55,25 +66,39 @@ function getCompInput() {
 function rockPaperScissors(user, comp) {
     if (user == comp) {
         console.log("Draw");
+        outputWinner.textContent = 'Draw'; 
     } else if (user == "rock" && comp == "scissors") {
         console.log("Player Wins");
-        // winCounterPlayer += 1;
+        outputWinner.textContent = "Player Wins"; 
+        playerCount += 1;
     } else if (user == "rock" && comp == "paper") {
         console.log("Computer Wins");
-        // winCounterComp += 1;
+        outputWinner.textContent = "Computer Wins";
+        computerCount += 1;
     } else if (user == "paper" && comp == "rock") {
         console.log("Player Wins");
-        // winCounterPlayer += 1;
+        outputWinner.textContent = "Player Wins";
+        playerCount += 1;
     } else if (user == "paper" && comp == "scissors") {
         console.log("Computer Wins");
-        // winCounterComp += 1;
+        outputWinner.textContent = "Computer Wins";
+        computerCount += 1;
     } else if (user == "scissors" && comp == "paper") {
         console.log("Player Wins");
-        // winCounterPlayer += 1;
+        outputWinner.textContent = "Player Wins";
+        playerCount += 1;
     } else if (user == "scissors" && comp == "rock") {
         console.log("Computer Wins");
-        // winCounterComp += 1;
+        outputWinner.textContent = "Computer Wins";
+        computerCount += 1;
     }
+}
+
+
+// Function to Update Scoreboard:
+function updateScoreboard() {
+    playerScore.textContent = playerCount;
+    compScore.textContent = computerCount;
 }
 
 
@@ -86,8 +111,9 @@ function playGame(player) {
     co = getCompInput();
 
     rockPaperScissors(pl, co);
+
+    updateScoreboard();
 }
-// playGame();
 
 
 

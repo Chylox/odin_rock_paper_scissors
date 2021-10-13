@@ -7,39 +7,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+        main {
+            width: 90%;
+            margin: 3vh auto;
+            border: 1px black solid;
+            border-radius: 30px;
+            background-color: rgba(116, 219, 211, 0.5)
+        }
         button {
             margin: 1%;
             padding: 10px;
             width: 300px;
             font-size: 2em;
+            margin: 2vh 0 5vh 0;
+            border-radius: 15px;
         }
 
         body {
             width: 100%;
-            
+
         }
+
         div {
             display: flex;
             margin: 0 auto;
             justify-content: space-around;
+        }
+
+        #outputScore {
+            font-size: 2em;
+            margin: 0 0 2vh 0;
+        }
+
+        #outputScore>div {
+            width: 300px;
+        }
+
+        #select {
             margin: 0 0 5vh 0;
+        }
+
+        #select>div {
+            width: 300px;
+        }
+
+        #outputWinner {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 2vh;
         }
     </style>
 </head>
 
 <body>
-    <!-- <div>
-        <button id="startGame">Start Game</button>
-    </div> -->
-    <div>
-        <button class="rps" id="rock" value="rock">Rock</button>
-        <button class="rps" id="paper" value="paper">Paper</button>
-        <button class="rps" id="scissors" value="scissors">Scissors</button>
-    </div>
+    <main>
+        <div>
+            <button class="rps" id="rock" value="rock">Rock</button>
+            <button class="rps" id="paper" value="paper">Paper</button>
+            <button class="rps" id="scissors" value="scissors">Scissors</button>
+        </div>
 
-    <div id="output">
-        Here Comes the Output
-    </div>
+        <div id="outputScore">
+            <div>Player</div>
+            <div>
+                <div>
+                    <span id="playerScore">--</span>:<span id="compScore">--</span>
+                </div>
+            </div>
+            <div>Computer</div>
+        </div>
+        <div id="select">
+            <div id="playerSelect">
+                -----
+            </div>
+            <div>vs.</div>
+            <div id="compSelect">
+                -----
+            </div>
+        </div>
+
+        <div id="outputWinner">
+            To Play a Round, push a button!
+        </div>
+    </main>
 
 
     <script src="script_new.js"></script>
