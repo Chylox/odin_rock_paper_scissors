@@ -14,7 +14,7 @@ const compSelect = document.querySelector('#compSelect');
 
 let playerCount = 0;
 let computerCount = 0;
-let count = 0;
+// let count = 0;
 
 // // // Buildup of Basic Logic:
 
